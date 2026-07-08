@@ -272,6 +272,7 @@
                 <option value="RECUPERADO HARD">RECUPERADO HARD</option>
                 <option value="SOFT">SOFT</option>
                 <option value="MUDANZA">MUDANZA</option>
+                <option value="RECONEXION - BAJA VOLUNTARIA">RECONEXION - BAJA VOLUNTARIA</option>
             </select>
         </div>
         <div class="input-group">
@@ -279,6 +280,7 @@
             <select id="supervisor" required>
                 <option value="" disabled selected>Seleccione Supervisor</option>
                 <option>TUR - BELKYS PIÑA</option>
+                <option>TUR - YOSCARI MARQUEZ</option>
                 <option>SAC - FRANCYS RUMBOS</option>
                 <option>PLN - LUIS MALPICA</option>
                 <option>MCY - IAN ESCOBAR</option>
@@ -700,7 +702,7 @@
             document.getElementById('seccion_salud').style.display = 'none';
 
         } else {
-            // NUEVO o RECUPERADO HARD
+            // NUEVO o RECUPERADO HARD O RECONEXION BAJA VOLUNTARIA
             gestionarSalud();
         }
     }
@@ -800,6 +802,7 @@
             if (d.tipo_contrato === "RECUPERADO HARD") tituloMsg = "*RECUPERADO HARD*";
             else if (d.tipo_contrato === "MUDANZA") tituloMsg = "*MUDANZA NETUNO*";
             else if (d.tipo_contrato === "SOFT") tituloMsg = "*CONTRATO SOFT NETUNO*";
+            else if (d.tipo_contrato === "RECONEXION - BAJA VOLUNTARIA") tituloMsg = "*RECONEXION BAJA VOLUNTARIA*";
 
             let msg = `${tituloMsg}\n\n`;
             
@@ -811,7 +814,7 @@
             } else if (d.tipo_contrato === "MUDANZA") {
                 msg += `✅ *Operadora:* ${d.operadora}\n✅ *Asesor:* ${d.asesor}\n✅ *Cliente:* ${d.nombre}\n✅ *Clase:* ${d.clase}\n✅ *Documento de identidad:* ${d.documento}\n✅ *Monto:* ${d.monto}\n✅ *Fecha de Firma:* ${d.fecha_firma}\n✅ *Correo electrónico:* ${d.correo}\n✅ *Teléfono 1:* ${d.tel1}\n✅ *Teléfono 2:* ${d.tel2}\n✅ *Municipio:* ${d.municipio}\n✅ *Urbanismo:* ${d.urbanismo}\n✅ *Sector:* ${d.sector}\n✅ *Calle Principal:* ${d.calle_principal}\n✅ *Residencia:* ${d.residencia}\n✅ *Edificio:* ${d.edificio}\n✅ *CI:* ${d.ci}\n✅ *CF:* ${d.cf}\n✅ *Casa/Piso/Apto:* ${d.casa_apto}\n✅ *Enlace:* ${d.enlace}\n✅ *Tipo de red:* ${d.tipo_red}\n✅ *Plan:* ${d.velocidad}\n✅ *Medio de pago:* ${d.medio_pago}\n✅ *Datos del Punto de Venta:*\n✅ *Terminal:* ${d.terminal}\n✅ *Lote:* ${d.lote}\n✅ *Aprobacion:* ${d.aprobacion}\n✅ *Tasa BCV:* ${d.tasa_bcv}\n`;
             } else {
-                // NUEVO y RECUPERADO HARD
+                // NUEVO y RECUPERADO HARD y RECONEXION - BAJA VOLUNTARIA
                 msg += `✅ *Operadora:* ${d.operadora}\n✅ *Asesor:* ${d.asesor}\n✅ *Cliente:* ${d.nombre}\n✅ *Clase:* ${d.clase}\n✅ *Documento de identidad:* ${d.documento}\n✅ *Plan:* ${d.velocidad}\n✅ *ONT:* ${d.ont}\n✅ *Monto:* ${d.monto}\n✅ *Fecha de Firma:* ${d.fecha_firma}\n✅ *Correo electrónico:* ${d.correo}\n✅ *Teléfono 1:* ${d.tel1}\n✅ *Teléfono 2:* ${d.tel2}\n✅ *Municipio:* ${d.municipio}\n✅ *Urbanismo:* ${d.urbanismo}\n✅ *Sector:* ${d.sector}\n✅ *Calle Principal:* ${d.calle_principal}\n✅ *Residencia:* ${d.residencia}\n✅ *Edificio:* ${d.edificio}\n✅ *CI:* ${d.ci}\n✅ *CF:* ${d.cf}\n✅ *Casa/Piso/Apto:* ${d.casa_apto}\n✅ *Enlace:* ${d.enlace}\n✅ *Promocion:* ${d.promocion}\n✅ *Costo instalación:* ${d.instalacion}\n✅ *Tipo de red:* ${d.tipo_red}\n✅ *Observacion del router:* ${d.obs_router}\n✅ *Medio de pago:* ${d.medio_pago}\n✅ *Datos del Punto de Venta:*\n✅ *Terminal:* ${d.terminal}\n✅ *Lote:* ${d.lote}\n✅ *Aprobacion:* ${d.aprobacion}\n✅ *Tasa BCV:* ${d.tasa_bcv}\n✅ *migrado de:* ${d.migrado_de}\n`;
             }
             
